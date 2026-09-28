@@ -1,7 +1,7 @@
 import { brand, nav, footer, contact, getWhatsappHref } from '../data/content.js'
 import a1Logo from '../assets/images/a1-salon-logo.png'
 
-export default function Footer() {
+export default function Footer({ onOpenCredits }) {
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -53,7 +53,17 @@ export default function Footer() {
 
       <div className="footer__copyright">
         <span>{footer.copyright}</span>
-        <span>Crafted for Modern Gentlemen · Arunthavampulam</span>
+        <span className="footer__dev-credit">
+          Crafted & Engineered by{' '}
+          <button
+            type="button"
+            className="footer__dev-link"
+            onClick={onOpenCredits}
+            title="View Efron Web Services Hub Leadership & Engineering Details"
+          >
+            Efron Web Services Hub
+          </button>
+        </span>
       </div>
     </footer>
   )

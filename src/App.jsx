@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -9,8 +10,11 @@ import Booking from './components/Booking.jsx'
 import Location from './components/Location.jsx'
 import Footer from './components/Footer.jsx'
 import MobileStickyCTA from './components/MobileStickyCTA.jsx'
+import CreditsModal from './components/CreditsModal.jsx'
 
 export default function App() {
+  const [isCreditsOpen, setIsCreditsOpen] = useState(false)
+
   return (
     <>
       <Navbar />
@@ -24,8 +28,12 @@ export default function App() {
         <Booking />
         <Location />
       </main>
-      <Footer />
+      <Footer onOpenCredits={() => setIsCreditsOpen(true)} />
       <MobileStickyCTA />
+      <CreditsModal
+        isOpen={isCreditsOpen}
+        onClose={() => setIsCreditsOpen(false)}
+      />
     </>
   )
 }
